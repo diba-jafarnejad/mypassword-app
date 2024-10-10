@@ -1,13 +1,91 @@
-body {
+/* Global Styles */
+body, html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* App Container */
+.App {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 600px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Header */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Authentication Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+}
+
+/* Password Manager List */
+.password-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.password-list li {
+  background-color: #e9ecef;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-list li span {
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .App {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 1rem;
+  }
 }

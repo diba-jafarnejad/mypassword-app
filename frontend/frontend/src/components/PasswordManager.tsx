@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../services/api";
+import {api} from "../services/api";
 
 interface PasswordEntry {
   id: number;
@@ -14,7 +14,7 @@ const PasswordManager: React.FC = () => {
   useEffect(() => {
     const fetchPasswords = async () => {
       try {
-        const response = await axios.get<PasswordEntry[]>('/passwords');
+        const response = await api.get<PasswordEntry[]>('/passwords');
         setPasswords(response.data);
       }
       catch (error) {

@@ -1,38 +1,45 @@
-import React, { useState } from "react";
-import axios from "../services/api";
+import React, { useState } from 'react';
+import { login } from '../services/api';
 
 interface AuthProps {
   setAuthenticated: (isAuthenticated: boolean) => void;
 }
 
 const Auth: React.FC<AuthProps> = ({ setAuthenticated }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const login = async () => {
+  const handleLogin = async () => {
     try {
-      const response = await axios.post("/auth", { username, password });
+      const response = await login(username, password);
       if (response.status === 200) {
         setAuthenticated(true);
+        setError(null);
+        alert('Login successful');
       }
     } catch (error) {
-      alert("Invalid credentials");
+      setError('Invalid credentials');
     }
   };
 
   return (
     <div>
+      <h2>Login</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <input
         type="text"
         placeholder="Username"
+        value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="password"
         placeholder="Password"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={login}>Login</button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };

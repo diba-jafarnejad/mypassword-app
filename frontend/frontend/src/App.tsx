@@ -1,9 +1,9 @@
-import React from "react";
-import PasswordManager from "./components/PasswordManager";
+import React, { useState } from "react";
 import Auth from "./components/Auth";
+import PasswordManager from "./components/PasswordManager";
 
 function App() {
-  const [isAuthenticated, setAuthenticated] = React.useState(false);
+  const [isAuthenticated, setAuthenticated] = useState(false);
 
   return (
     <div className="App">
@@ -15,5 +15,5 @@ function App() {
     </div>
   );
 }
-export default App;
 
+export default App;
